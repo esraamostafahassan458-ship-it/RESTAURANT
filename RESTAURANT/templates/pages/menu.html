@@ -1,0 +1,29 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1 style="text-align:center;">MENUE FOOD</MENu>🍽️</h1>
+
+    <div class="menu">
+        {% for item in items %}
+        <div class="menu-item">
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            {% else %}
+                <img src="{% static 'images/no-image.png' %}" alt="No Image">
+            {% endif %}
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <span class="price">{{ item.price }} EGP</span>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
